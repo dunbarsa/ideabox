@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab:700');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans";
+  font-weight: 400;
+}
+
+header,
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+header {
+  background-color: #E5F3F2;
+}
+
+.idea-container,
+.search {
+  width: 50%;
+}
+
+h1 {
+  font-family: "Roboto Slab";
+  font-size: 75px;
+  font-weight: 600;
+  color: #6D6E71;
+  margin: 20px;
+  width: 50%;
+  text-align: center;
+}
+
+.h1-alt {
+  color: #00A79D;
+}
+
+.main-inputs,
+.save-button,
+.search {
+  height: 50px;
+  font-size: 24px;
+}
+
+.search {
+  border: 1px solid #939598;
+  margin: 25px 0;
+}
+
+.main-inputs {
+  border: 1px solid #939598;
+  margin: 10px 0;
+}
+
+.save-button {
+  background-color:#00A79D;
+  color: #FFF;
+  border: none;
+  margin: 10px 0 25px;
+}
+
+.save-button:hover {
+  background-color: #045E55;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.idea-container {
+  border-bottom: 1px solid #D1D3D4;
+}
+h2 {
+  color: #6D6E71
+}
+
+.delete-button {
+  width: 10px;
+}
+
+.body-text {
+  color: #939598;
+}
+
+.arrows {
+  width: 5%;
+}
+
+article p {
+  color: #6D6E71;
+}
+
+@media screen and (max-width: 500px){
+  h1 {
+    font-size: 60px;
+  }
+}
