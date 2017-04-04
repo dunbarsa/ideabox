@@ -79,12 +79,17 @@ h1 {
 .idea-container {
   border-bottom: 1px solid #D1D3D4;
 }
+
 h2 {
-  color: #6D6E71
+  color: #6D6E71;
+  display: inline-block;
 }
 
 .delete-button {
-  width: 10px;
+  width: 20px;
+  border: none;
+  background-color: white;
+  float: right;
 }
 
 .body-text {
@@ -92,15 +97,26 @@ h2 {
 }
 
 .arrows {
-  width: 5%;
+  width: 20px;
 }
 
 article p {
   color: #6D6E71;
+  display: inline-block;
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 500px) {
   h1 {
     font-size: 60px;
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+  h1,
+  .idea-container,
+  .input-container,
+  .search {
+    width: 70%;
   }
 }
