@@ -6,7 +6,7 @@
     $('h2').append('<div class="newtitle">' + addTitle + '</div>');
     $('#bodyTextContainer').append('<div class="newBodyText">' + addBody +
     '</div>');
-  })
+  });
 
     // NO GOD FUNCTIONS - Write individual/reusable functions where you can
     // For prepend - Instead of targeting individual elements, try targeting the section containing the guts of the card
