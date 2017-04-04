@@ -2,29 +2,31 @@
 <head>
   <title>ideabox</title>
   <link rel="stylesheet" href="style.css" type="text/css">
-  <script src="script.js" type="text/javascript"></script>
 </head>
 <body>
   <header>
     <h1><span class="h1-alt">idea</span>box</h1>
     <section class="input-container">
-      <input class="main-inputs" type="text" placeholder="Title">
-      <input class="main-inputs" type="text" placeholder="Body">
+      <input id="titleInput" class="main-inputs" type="text" placeholder="Title">
+      <input id="bodyInput" class="main-inputs" type="text" placeholder="Body">
       <button class="save-button">save</button>
     </section>
   </header>
   <main>
     <input class="search" type="text" placeholder="Search">
     <section class="idea-container">
-      <h2>Example Idea</h2>
+      <h2></h2>
       <button><img class="delete-button" src="icons/delete.svg" alt=""></button>
-      <p class="body-text">erouh eroef eruh erotwef hhhe ierheoruhf eoruhtsfahu. ertouhfferwkecjovufhg. trtee</p>
+      <p class="body-text"></p>
       <article>
         <img class="arrows" src="icons/upvote.svg" alt="">
         <img class="arrows" src="icons/downvote.svg" alt="">
-        <p>quality:</p><p class="var-quality"></p>
+        <p id="bodyTextContainer"></p>
+          <p>quality:</p><p class="var-quality"></p>
       </article>
     </section>
   </main>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
