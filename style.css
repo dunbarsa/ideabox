@@ -83,21 +83,20 @@ h1 {
   width: 50%;
 }
 
-.idea-container {
+.one-idea {
   border-bottom: 1px solid #D1D3D4;
 }
 
-
-#bodyTextContainer {
-
-}
+/*.newBodyText {
+  width: 50%;
+}*/
 
 h2 {
   color: #6D6E71;
   display: inline-block;
 }
 
-.delete-button {
+#delete-button {
   width: 20px;
   border: none;
   background-color: white;
@@ -106,6 +105,10 @@ h2 {
 
 .body-text {
   color: #939598;
+}
+
+.quality-box {
+  display: inline-block;
 }
 
 .arrows {
