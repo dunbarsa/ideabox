@@ -1,3 +1,9 @@
+var ideaArray = [];
+
+
+// prependCard()
+console.log('this happened');
+
 function IdeaCardContent(title, body) {
   this.title = title;
   this.body = body;
@@ -5,16 +11,27 @@ function IdeaCardContent(title, body) {
   this.quality = 'swill';
 }
 
+
 $('.save-button').on('click',function() {
   console.log("Save button has been clicked");
   var $title = $('#titleInput').val();
   var $body = $('#bodyInput').val();
   var ideaCard = new IdeaCardContent($title, $body);
-  prependCard(ideaCard);
+  ideaArray.push(ideaCard);
+  var storeObject = JSON.stringify(ideaArray)
+  localStorage.setItem('idea array', storeObject);
+  prependCard();
   clearCard();
 });
 
-function prependCard(ideaCard){
+
+
+function prependCard(){
+  var releaseObject = localStorage.getItem('idea array');
+  var parsedObject = JSON.parse(releaseObject);
+  ideaArray = parsedObject;
+  // iterate through ideaArray then run the prepend on each idea
+  console.log('parsed array', ideaArray);
   $('.idea-container').prepend(`
     <div class='one-idea' id='${ideaCard.id}'>
       <h2 id='title-text'>${ideaCard.title}</h2>
