@@ -9,10 +9,14 @@
     <article><img class='arrows' src='icons/upvote.svg' alt='Upvote icon.'> \
     <img class='arrows' src='icons/downvote.svg' alt='Downvote icon.'> \
     <div class='quality-box'><p>quality:</p><p class='var-quality'></p> \
-    </div></article></div>")
+    </div></article></div>");
     // $('h2').append('<div class="newtitle">' + addTitle + '</div>');
     // $('#bodyTextContainer').append('<div class="newBodyText">' + addBody +
     // '</div>');
+    $('#delete-button').on('click', function() {
+      console.log("I work");
+      $(this).parent().remove();
+    })
     clearCard();
   });
 // <img src='icons/delete.svg'>
@@ -21,11 +25,6 @@ function clearCard () {
   $('#bodyInput').val('');
 }
 
-$('#delete-button').on('click', function() {
-  console.log("I work");
-$('.one-idea').closest().remove();
-
-})
 
 
     // NO GOD FUNCTIONS - Write individual/reusable functions where you can
