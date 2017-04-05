@@ -1,29 +1,31 @@
 
-  $('.save-button').on('click',function() {
-    console.log("clicked");
+
+$('.save-button').on('click',function() {
+    console.log("Save button has been clicked.");
     var addTitle = $('#titleInput').val();
     var addBody = $('#bodyInput').val();
     $('.idea-container').prepend("<div class='one-idea'><h2 id='title-text'>" + addTitle +
     "</h2><button type='button' id='delete-button' alt=''><img src='icons/delete.svg'></button> \
     <p id='body-text'>" + addBody + "</p> \
-    <article><img class='arrows' src='icons/upvote.svg' alt='Upvote icon.'> \
-    <img class='arrows' src='icons/downvote.svg' alt='Downvote icon.'> \
+    <article><button class='arrows' id='upvote'><img class='arrows' src='icons/upvote.svg' alt='Upvote icon.'></button> \
+    <button class='arrows' id='downvote'><img src='icons/downvote.svg' alt='Downvote icon.'></button> \
     <div class='quality-box'><p>quality:</p><p class='var-quality'></p> \
     </div></article></div>");
-    // $('h2').append('<div class="newtitle">' + addTitle + '</div>');
-    // $('#bodyTextContainer').append('<div class="newBodyText">' + addBody +
-    // '</div>');
     $('#delete-button').on('click', function() {
-      console.log("I work");
+      console.log("Idea deleted.");
       $(this).parent().remove();
     })
+
     clearCard();
   });
-// <img src='icons/delete.svg'>
+
 function clearCard () {
+  console.log("Input text cleared.")
   $('#titleInput').val('');
   $('#bodyInput').val('');
 }
+
+var qualityArray = ['swill', 'plausible', 'genius'];
 
 
 
