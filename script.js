@@ -22,8 +22,9 @@ $('.save-button').on('click',function() {
         </article>
       </div>`);
 
+
     $('#delete-button').on('click', function() {
-      console.log("I work");
+      console.log("Idea deleted.");
       $(this).parent().remove();
     });
     clearCard();
@@ -53,3 +54,4 @@ $('.save-button').on('click',function() {
     $('#titleInput').val('');
     $('#bodyInput').val('');
   }
+
