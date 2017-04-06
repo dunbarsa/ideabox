@@ -39,7 +39,6 @@ function displayStoredCard() {
   });
 }
 
-
 function IdeaCardContent(title, body) {
 	this.title = title;
 	this.body = body;
@@ -52,15 +51,6 @@ function clearCard() {
 	$('#titleInput').val('');
 	$('#bodyInput').val('');
 }
-
-//   function findId (){
-//     var $oneIdeaIdValue = $('.one-idea')
-//   $('.one-idea').find('div')
-//   console.log('div')
-//   console.log($('one-idea').attr('id'));
-//     console.log('id');
-// }
-// findId();
 
 function prependCard(ideaCard) {
 	console.log('parsed array', ideaArray);
