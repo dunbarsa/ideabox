@@ -11,34 +11,39 @@ function IdeaCardContent(title, body) {
   this.quality = 'swill';
 }
 
-
-$('.save-button').on('click',function() {
-  console.log("Save button has been clicked");
-  var $title = $('#titleInput').val();
-  var $body = $('#bodyInput').val();
-  var ideaCard = new IdeaCardContent($title, $body);
-  ideaArray.push(ideaCard);
-  var storeObject = JSON.stringify(ideaArray)
-  localStorage.setItem('idea array', storeObject);
-  prependCard();
-  clearCard();
-});
+//delete single card when trash is clicked
+function clearCard () {
+  $('#titleInput').val('');
+  $('#bodyInput').val('');
+}
 
 
 
-function prependCard(){
-  var releaseObject = localStorage.getItem('idea array');
-  var parsedObject = JSON.parse(releaseObject);
-  ideaArray = parsedObject;
+
+
+
+
+
+
+
+
+function prependCard(feedMeCard){
+  var releaseArray = localStorage.getItem('idea array');
+  var parsedArray = JSON.parse(releaseArray);
+  ideaArray = parsedArray;
+
+
+
+
   // iterate through ideaArray then run the prepend on each idea
   console.log('parsed array', ideaArray);
   $('.idea-container').prepend(`
-    <div class='one-idea' id='${ideaCard.id}'>
-      <h2 id='title-text'>${ideaCard.title}</h2>
+    <div class='one-idea' id='${feedMeCard.id}'>
+      <h2 id='title-text' contenteditable= 'true'>${feedMeCard.title}</h2>
       <button type='button' id='delete-button'>
         <img src='icons/delete.svg' alt='Delete button'>
       </button>
-      <p id='body-text'>${ideaCard.body}</p>
+      <p id='body-text' contenteditable= 'true'>${feedMeCard.body}</p>
       <article>
         <button class='arrows' id='upvote'>
           <img src='icons/upvote.svg' alt='Upvote icon.'>
@@ -47,11 +52,23 @@ function prependCard(){
           <img src='icons/downvote.svg' alt='Downvote icon.'>
         </button>
         <div class='quality-box'>
-          <p>quality: </p>&ensp;<p class='var-quality'>${ideaCard.quality}</p>
+          <p>quality: </p>&ensp;<p class='var-quality'>${feedMeCard.quality}</p>
         </div>
       </article>
     </div>`);
 }
+
+$('.save-button').on('click',function() {
+  console.log("Save button has been clicked");
+  var $title = $('#titleInput').val();
+  var $body = $('#bodyInput').val();
+  var ideaCard = new IdeaCardContent($title, $body);
+  ideaArray.push(ideaCard);
+  var storeObject = JSON.stringify(ideaArray);
+  localStorage.setItem('idea array', storeObject);
+  prependCard();
+  clearCard();
+});
 
 $('.idea-container').on('click', '#delete-button', function() {
   console.log("Idea deleted.");
@@ -81,10 +98,3 @@ $('.idea-container').on('click', '#upvote', function(){
     $ideaQuality.text('genius');
   }
 });
-
-
-//delete single card when trash is clicked
-function clearCard () {
-  $('#titleInput').val('');
-  $('#bodyInput').val('');
-}

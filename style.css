@@ -103,6 +103,10 @@ h2 {
   float: right;
 }
 
+#delete-button:hover {
+  
+}
+
 .body-text {
   color: #939598;
 }
