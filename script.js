@@ -2,19 +2,18 @@ var ideaArray = [];
 
 displayStoredCard();
 
-function fromStorage() {
-	var releaseArray = localStorage.getItem('arrayIdeas');
-	var parsedArray = JSON.parse(releaseArray);
-  console.log(parsedArray);
-	// var targetIdeas = $('.idea-container').find('.one-card').attr('id');
-	// $('.idea-container').prepend(parsedArray);
-}
+// function fromStorage() {
+// 	var releaseArray = localStorage.getItem('arrayIdeas');
+// 	var parsedArray = JSON.parse(releaseArray);
+//   console.log(parsedArray);
+// }
 
 function displayStoredCard() {
-  var releaseArray = localStorage.getItem('arrayIdeas');
-  var parsedArray = JSON.parse(releaseArray);
-  console.log(parsedArray);
-	parsedArray.forEach(function(ideaCard) {
+  $('.idea-container').html('');
+  var releaseArray = localStorage.getItem('arrayIdeas') || "[]";
+  ideaArray = JSON.parse(releaseArray);
+  console.log(ideaArray);
+	ideaArray.forEach(function(ideaCard) {
 		$('.idea-container').prepend(`
     <div class='one-idea' id='${ideaCard.id}'>
       <h2 id='title-text' contenteditable='true'>${ideaCard.title}</h2>
@@ -46,33 +45,10 @@ function IdeaCardContent(title, body) {
 	this.quality = 'swill';
 }
 
-//delete single card when trash is clicked
+//delete idea card when trash is clicked
 function clearCard() {
 	$('#titleInput').val('');
 	$('#bodyInput').val('');
-}
-
-function prependCard(ideaCard) {
-	console.log('parsed array', ideaArray);
-	$('.idea-container').prepend(`
-    <div class='one-idea' id='${ideaCard.id}'>
-      <h2 id='title-text' contenteditable='true'>${ideaCard.title}</h2>
-      <button type='button' id='delete-button'>
-        <img src='icons/delete.svg' alt='Delete button'>
-      </button>
-      <p id='body-text' contenteditable='true'>${ideaCard.body}</p>
-      <article>
-        <button class='arrows' id='upvote'>
-          <img src='icons/upvote.svg' alt='Upvote icon.'>
-        </button>
-        <button class='arrows' id='downvote'>
-          <img src='icons/downvote.svg' alt='Downvote icon.'>
-        </button>
-        <div class='quality-box'>
-          <p>quality: </p>&ensp;<p class='var-quality'>${ideaCard.quality}</p>
-        </div>
-      </article>
-    </div>`);
 }
 
 $('.save-button').on('click', function() {
@@ -83,10 +59,14 @@ $('.save-button').on('click', function() {
 	ideaArray.push(ideaCard);
 	var storeObject = JSON.stringify(ideaArray);
 	localStorage.setItem('arrayIdeas', storeObject);
-	prependCard(ideaCard);
-	clearCard();
+  displayStoredCard();
+  clearCard();
+
 });
 
+// ideaArray.find('')
+
+//trash an idea
 $('.idea-container').on('click', '#delete-button', function() {
 	console.log("Idea deleted.");
 	$(this).parent().remove();
