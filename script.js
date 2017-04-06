@@ -17,33 +17,33 @@ function clearCard () {
   $('#bodyInput').val('');
 }
 
+//   function findId (){
+//     var $oneIdeaIdValue = $('.one-idea')
+//   $('.one-idea').find('div')
+//   console.log('div')
+//   // console.log($('one-idea').attr('id'));
+//     // console.log('id');
+// }
+// findId();
 
-
-
-
-
-
-
-
-
-
-function prependCard(feedMeCard){
-  var releaseArray = localStorage.getItem('idea array');
-  var parsedArray = JSON.parse(releaseArray);
-  ideaArray = parsedArray;
-
-
-
-
+// make a function to find() the unique id of each idea
+function prependCard(ideaCard){
+  var releaseObject = localStorage.getItem('idea array');
+  var parsedObject = JSON.parse(releaseObject);
+  ideaArray = parsedObject;
+  // $(ideaArray).each(function(oneArray){
+  //   console.log(oneArray);
+  // })
+  // })
   // iterate through ideaArray then run the prepend on each idea
   console.log('parsed array', ideaArray);
   $('.idea-container').prepend(`
-    <div class='one-idea' id='${feedMeCard.id}'>
-      <h2 id='title-text' contenteditable= 'true'>${feedMeCard.title}</h2>
+    <div class='one-idea' id='${ideaCard.id}'>
+      <h2 id='title-text' contenteditable='true'>${ideaCard.title}</h2>
       <button type='button' id='delete-button'>
         <img src='icons/delete.svg' alt='Delete button'>
       </button>
-      <p id='body-text' contenteditable= 'true'>${feedMeCard.body}</p>
+      <p id='body-text' contenteditable='true'>${ideaCard.body}</p>
       <article>
         <button class='arrows' id='upvote'>
           <img src='icons/upvote.svg' alt='Upvote icon.'>
@@ -52,7 +52,7 @@ function prependCard(feedMeCard){
           <img src='icons/downvote.svg' alt='Downvote icon.'>
         </button>
         <div class='quality-box'>
-          <p>quality: </p>&ensp;<p class='var-quality'>${feedMeCard.quality}</p>
+          <p>quality: </p>&ensp;<p class='var-quality'>${ideaCard.quality}</p>
         </div>
       </article>
     </div>`);
