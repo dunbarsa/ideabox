@@ -2,12 +2,6 @@ var ideaArray = [];
 
 displayStoredCard();
 
-// function fromStorage() {
-// 	var releaseArray = localStorage.getItem('arrayIdeas');
-// 	var parsedArray = JSON.parse(releaseArray);
-//   console.log(parsedArray);
-// }
-
 function displayStoredCard() {
   $('.idea-container').html('');
   var releaseArray = localStorage.getItem('arrayIdeas') || "[]";
